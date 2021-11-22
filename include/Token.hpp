@@ -17,6 +17,7 @@ namespace Fyt
 		IDENTIFIER,
 		COMMENT_POTENTIAL,
 		DOUBLE_POTENTIAL,
+		COMMENT,
 	};
 
 	enum class TokenName
