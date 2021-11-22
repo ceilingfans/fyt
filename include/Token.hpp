@@ -8,12 +8,12 @@ namespace Fyt
 	enum class TokenType
 	{
 		INVALID = -1,
-		KEYWORDS,
-		OPERATORS,
+		KEYWORD,
+		OPERATOR,
 		STRING_LITERAL,
 		STRING_ESCAPE_SEQUENCE,
 		NUMBER_LITERAL,
-		IDENTIFIERS,
+		IDENTIFIER,
 	};
 
 	enum class TokenName
