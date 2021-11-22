@@ -11,6 +11,7 @@ namespace Fyt
 		KEYWORDS,
 		OPERATORS,
 		STRING_LITERAL,
+		STRING_ESCAPE_SEQUENCE,
 		NUMBER_LITERAL,
 		IDENTIFIERS,
 	};
@@ -33,12 +34,16 @@ namespace Fyt
 	{
 	public:
 		Token(TokenType p_type, TokenName p_name, std::string p_literal);
+		Token();
 		TokenType getType() const;
 		TokenName getName() const;
 		std::string getLiteral() const;
+		void setType(TokenType p_type);
+		void setName(TokenName p_name);
+		void setLiteral(std::string p_literal);
 	private:
-		TokenType type;
-		TokenName name;
+		TokenType type { TokenType::INVALID };
+		TokenName name { TokenName::INVALID };
 		std::string literal;
 	};
 } /* namespace Fyt */
