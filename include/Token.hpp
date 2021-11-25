@@ -56,6 +56,7 @@ namespace Fyt
 		void setType(TokenType p_type);
 		void setName(TokenName p_name);
 		void setLiteral(std::string p_literal);
+		void print();
 	private:
 		TokenType type { TokenType::INVALID };
 		TokenName name { TokenName::INVALID };
