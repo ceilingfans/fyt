@@ -20,7 +20,7 @@ namespace Fyt
 		COMMENT,
 	};
 
-	static char* TokenTypeStringified[] = {
+	static const char* TokenTypeStringified[] = {
 			"INVALID",
 			"KEYWORD",
 			"OPERATOR",
