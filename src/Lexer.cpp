@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "Lexer.hpp"
 
@@ -27,7 +28,8 @@ namespace Fyt
 							break;
 						default:
 							// TODO: error message
-							throw std::runtime_error("invalid escape character");
+							std::cout << "Fyt: Invalid string escape sequence '" << current << "'" << std::endl;
+							exit(-1);
 					}
 				} else if (currentToken.getType() == TokenType::COMMENT_POTENTIAL && current != '/')
 				{
@@ -89,7 +91,8 @@ namespace Fyt
 						} else if (currentToken.getType() == TokenType::DOUBLE_LITERAL)
 						{
 							// TODO: error message
-							throw std::runtime_error("unexpected token '.' in a double literal");
+							std::cout << "Fyt: Unexpected token '.' in a double literal" << std::endl;
+							exit(-1);
 						} else
 						{
 							endToken(currentToken, tokens);
@@ -123,7 +126,6 @@ namespace Fyt
 						break;
 					case ' ':
 					case '\t':
-					case '\r':
 						if (currentToken.getType() == TokenType::STRING_LITERAL || currentToken.getType() == TokenType::COMMENT)
 						{
 							currentToken.setLiteral(currentToken.getLiteral().append(1, current));
@@ -132,6 +134,7 @@ namespace Fyt
 							endToken(currentToken, tokens);
 						}
 						break;
+					case '\r':
 					case '\n':
 						endToken(currentToken, tokens);
 						++line;
