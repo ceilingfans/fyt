@@ -42,7 +42,7 @@ namespace Fyt
 		std::string getLiteral() const;
 		void setType(TokenType p_type);
 		void setLiteral(std::string p_literal);
-		void print();
+		void print() const;
 	private:
 		TokenType type { TokenType::INVALID };
 		std::string literal;
