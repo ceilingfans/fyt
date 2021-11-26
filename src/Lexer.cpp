@@ -17,8 +17,6 @@ namespace Fyt
 			for (const char &current: p_source)
 			{
 				++index;
-				currentToken.print();
-				std::cout << current << std::endl;
 				if (currentToken.getType() == TokenType::STRING_ESCAPE_SEQUENCE)
 				{
 					switch (current)
