@@ -122,6 +122,7 @@ namespace Fyt
 					case '*':
 					case '>':
 					case '<':
+					case ':':
 					case ';':
 					case ',':
 						if (currentToken.getType() != TokenType::STRING_LITERAL)
