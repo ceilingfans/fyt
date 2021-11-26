@@ -16,6 +16,9 @@ namespace Fyt
 
 			for (const char &current: p_source)
 			{
+				++index;
+				currentToken.print();
+				std::cout << current << std::endl;
 				if (currentToken.getType() == TokenType::STRING_ESCAPE_SEQUENCE)
 				{
 					switch (current)
@@ -31,6 +34,8 @@ namespace Fyt
 							std::cout << "Fyt: Invalid string escape sequence '" << current << "'" << std::endl;
 							exit(-1);
 					}
+					currentToken.setType(TokenType::STRING_LITERAL);
+					continue;
 				} else if (currentToken.getType() == TokenType::COMMENT_POTENTIAL && current != '/')
 				{
 					currentToken.setType(TokenType::OPERATOR);
@@ -111,6 +116,8 @@ namespace Fyt
 					case '-':
 					case '+':
 					case '*':
+					case '>':
+					case '<':
 					case ';':
 					case ',':
 						if (currentToken.getType() != TokenType::STRING_LITERAL)
@@ -143,9 +150,12 @@ namespace Fyt
 					case '\'':
 						if (currentToken.getType() != TokenType::STRING_LITERAL)
 						{
+							endToken(currentToken, tokens);
 							currentToken.setType(TokenType::STRING_LITERAL);
+						} else if (currentToken.getType() == TokenType::STRING_LITERAL)
+						{
+							endToken(currentToken, tokens);
 						}
-						endToken(currentToken, tokens);
 						break;
 					case '\\':
 						if (currentToken.getType() == TokenType::STRING_LITERAL)
@@ -180,7 +190,6 @@ namespace Fyt
 						currentToken.setLiteral(currentToken.getLiteral().append(1, current));
 						break;
 				}
-				++index;
 			}
 			endToken(currentToken, tokens);
 			return tokens;
