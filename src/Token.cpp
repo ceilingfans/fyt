@@ -21,7 +21,7 @@ namespace Fyt
 	void Token::setLiteral(std::string p_literal) { literal = std::move(p_literal); }
 
 	void Token::print() const {
-		std::cout << "{ " << "type: " << TokenTypeStringified[to_underlying(getType()) + 1] << ", literal: " << getLiteral() << " }" << std::endl;
+		std::cout << "{ " << R"("type": ")" << TokenTypeStringified[to_underlying(getType()) + 1] << R"(", "literal": ")" << getLiteral() << "\" }," << std::endl;
 	}
 
 } /* namespace Fyt */

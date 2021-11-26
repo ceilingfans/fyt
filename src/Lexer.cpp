@@ -22,10 +22,16 @@ namespace Fyt
 					switch (current)
 					{
 						case 'n': // newline
+							currentToken.setLiteral(currentToken.getLiteral().append(1, '\n'));
+							break;
 						case 't': // tab
+							currentToken.setLiteral(currentToken.getLiteral().append(1, '\t'));
+							break;
 						case 'r': // carriage return
+							currentToken.setLiteral(currentToken.getLiteral().append(1, '\r'));
+							break;
 						case '\\': // backlash
-							currentToken.setLiteral(currentToken.getLiteral().append(1, current));
+							currentToken.setLiteral(currentToken.getLiteral().append(1, '\\'));
 							break;
 						default:
 							// TODO: error message
