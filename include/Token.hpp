@@ -21,17 +21,17 @@ namespace Fyt
 	};
 
 	static const char* TokenTypeStringified[] = {
-			"INVALID",
-			"KEYWORD",
-			"OPERATOR",
-			"STRING_LITERAL",
-			"STRING_ESCAPE_SEQUENCE",
-			"INTEGER_LITERAL",
-			"DOUBLE_LITERAL",
-			"IDENTIFIER",
-			"COMMENT_POTENTIAL",
-			"DOUBLE_POTENTIAL",
-			"COMMENT",
+		"INVALID",
+		"KEYWORD",
+		"OPERATOR",
+		"STRING_LITERAL",
+		"STRING_ESCAPE_SEQUENCE",
+		"INTEGER_LITERAL",
+		"DOUBLE_LITERAL",
+		"IDENTIFIER",
+		"COMMENT_POTENTIAL",
+		"DOUBLE_POTENTIAL",
+		"COMMENT",
 	};
 
 	enum class TokenName
