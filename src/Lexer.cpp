@@ -152,14 +152,10 @@ namespace Fyt
 						++line;
 						break;
 					case '"':
-					case '\'':
+						endToken(currentToken, tokens);
 						if (currentToken.getType() != TokenType::STRING_LITERAL)
 						{
-							endToken(currentToken, tokens);
 							currentToken.setType(TokenType::STRING_LITERAL);
-						} else if (currentToken.getType() == TokenType::STRING_LITERAL)
-						{
-							endToken(currentToken, tokens);
 						}
 						break;
 					case '\\':
