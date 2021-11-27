@@ -8,7 +8,6 @@ namespace Fyt
 	enum class TokenType
 	{
 		INVALID = -1,
-		KEYWORD,
 		OPERATOR,
 		STRING_LITERAL,
 		STRING_ESCAPE_SEQUENCE,
@@ -22,7 +21,6 @@ namespace Fyt
 
 	static const char* TokenTypeStringified[] = {
 		"INVALID",
-		"KEYWORD",
 		"OPERATOR",
 		"STRING_LITERAL",
 		"STRING_ESCAPE_SEQUENCE",
