@@ -13,6 +13,7 @@ namespace Fyt
 			size_t line = 0;
 			std::vector<Token> tokens;
 			Token currentToken;
+			char currentStringQuote = '!'; // usage of '!' as a invalid string quote to signify start of strings
 
 			for (const char &current: p_source)
 			{
@@ -139,11 +140,22 @@ namespace Fyt
 						endToken(currentToken, tokens);
 						++line;
 						break;
+					case '\'':
 					case '"':
-						endToken(currentToken, tokens);
-						if (currentToken.getType() != TokenType::STRING_LITERAL)
+						if (currentStringQuote == '!')
 						{
+							endToken(currentToken, tokens);
+							currentStringQuote = current;
 							currentToken.setType(TokenType::STRING_LITERAL);
+							break;
+						}
+						if (current == currentStringQuote)
+						{
+							endToken(currentToken, tokens);
+							currentStringQuote = '!';
+						} else
+						{
+							currentToken.setLiteral(currentToken.getLiteral().append(1, current));
 						}
 						break;
 					case '\\':
