@@ -47,18 +47,6 @@ namespace Fyt
 					continue;
 				}
 
-//				if (isdigit(current))
-//				{
-//					if (currentToken.getType() == TokenType::INVALID)
-//					{
-//						currentToken.setType(TokenType::INTEGER_LITERAL);
-//					} else if (currentToken.getType() == TokenType::DOUBLE_POTENTIAL)
-//					{
-//						currentToken.setType(TokenType::DOUBLE_LITERAL);
-//					}
-//					currentToken.setLiteral(currentToken.getLiteral().append(1, current));
-//				}
-
 				switch (current)
 				{
 					case '0':
