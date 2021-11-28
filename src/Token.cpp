@@ -23,6 +23,6 @@ namespace Fyt
 
 	std::string Token::debugInfo() const
 	{
-		return std::string("{\ntype: ") + TokenTypeStringified[to_underlying(getType()) + 1] + "\nliteral:\n" + getLiteral() + "\n}";
+		return std::string("type: ") + TokenTypeStringified[to_underlying(getType()) + 1] + "\nliteral:\n" + getLiteral();
 	}
 } /* namespace Fyt */
