@@ -34,6 +34,10 @@ namespace Fyt
 						case '\\': // backlash
 							currentToken.setLiteral(currentToken.getLiteral().append(1, '\\'));
 							break;
+						case '\'':
+						case '"':
+							currentToken.setLiteral(currentToken.getLiteral().append(1, current));
+							break;
 						default:
 							// TODO: error message
 							std::cout << "Fyt: Invalid string escape sequence '" << current << "'" << std::endl;
