@@ -1,5 +1,6 @@
 #include <utility>
 #include <iostream>
+#include <fstream>
 
 #include "Token.hpp"
 
@@ -20,8 +21,8 @@ namespace Fyt
 	void Token::setType(TokenType p_type) { type = p_type; }
 	void Token::setLiteral(std::string p_literal) { literal = std::move(p_literal); }
 
-	void Token::print() const {
-		std::cout << "{ " << R"("type": ")" << TokenTypeStringified[to_underlying(getType()) + 1] << R"(", "literal": ")" << getLiteral() << "\" }," << std::endl;
+	std::string Token::debugInfo() const
+	{
+		return std::string("{\ntype: ") + TokenTypeStringified[to_underlying(getType()) + 1] + "\nliteral:\n" + getLiteral() + "\n}";
 	}
-
 } /* namespace Fyt */
